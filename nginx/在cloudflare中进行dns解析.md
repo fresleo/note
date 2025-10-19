@@ -51,12 +51,12 @@ server_name <a href="http://example.com">example.com</a> <a href="http://www.exa
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
 }
-</code></pre>
-<p>}<br>
-启用这个配置并重启 NGINX：</p>
+</pre>
+}</code><br>
+启用这个配置并重启 NGINX：
 <p>sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/<br>
 sudo systemctl restart nginx</p>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTA1NzA1MzddfQ==
+eyJoaXN0b3J5IjpbLTEyNjM4MDQyNzBdfQ==
 -->
