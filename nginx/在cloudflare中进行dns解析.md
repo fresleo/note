@@ -40,11 +40,11 @@ Content: <a href="http://example.com">example.com</a>（或者你的域名）<br
 找到 Nameserver 设置，选择 Custom Nameservers，并将其设置为 Cloudflare 提供的两个 Nameserver 地址。<br>
 保存更改：<br>
 保存并提交修改，NameSilo 将会更新你域名的 Nameservers。</p>
-<p>在配置文件中添加以下内容：<br>
+<p>在配置文件中添加以下内容：<br><code>
 server {<br>
 listen 80;<br>
 server_name <a href="http://example.com">example.com</a> <a href="http://www.example.com">www.example.com</a>;  # 使用你自己的域名</p>
-<pre><code>location / {
+<pre>location / {
     proxy_pass http://localhost:3000;  # 假设你希望将流量代理到本地的前端应用（如 Node.js 应用）
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
@@ -57,3 +57,6 @@ server_name <a href="http://example.com">example.com</a> <a href="http://www.exa
 <p>sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/<br>
 sudo systemctl restart nginx</p>
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE3NTA1NzA1MzddfQ==
+-->
