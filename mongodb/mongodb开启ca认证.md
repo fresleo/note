@@ -112,40 +112,46 @@ client.pem：客户端证书（如果使用双向认证，客户端也需要证�
 连接命令格式：
 
  
-mongosh --host <hostname> --port <port> \
-        --tls \
-        --tlsCAFile /path/to/ca.pem \
-        --tlsCertificateKeyFile /path/to/client.pem
---tls：启用 TLS 加密。
---tlsCAFile /path/to/ca.pem：指定 CA 根证书，客户端用它来验证 MongoDB 服务器的证书。
---tlsCertificateKeyFile /path/to/client.pem：如果启用了双向 TLS，指定客户端证书。
+
+    mongosh --host <hostname> --port <port> \
+            --tls \
+            --tlsCAFile /path/to/ca.pem \
+            --tlsCertificateKeyFile /path/to/client.pem
+    --tls：启用 TLS 加密。
+    --tlsCAFile /path/to/ca.pem：指定 CA 根证书，客户端用它来验证 MongoDB 服务器的证书。
+    --tlsCertificateKeyFile /path/to/client.pem：如果启用了双向 TLS，指定客户端证书。
 
 
 示例：
 
- 
-mongosh --host mongodb --port 27017 \
-        --tls \
-        --tlsCAFile /path/to/ca.pem \
-        --tlsCertificateKeyFile /path/to/client.pem
+     
+    mongosh --host mongodb --port 27017 \
+            --tls \
+            --tlsCAFile /path/to/ca.pem \
+            --tlsCertificateKeyFile /path/to/client.pem
+
 步骤 3：连接带认证（如果需要）
 如果您的 MongoDB 配置了用户名和密码认证，您还需要提供认证信息：
 
  
  
-mongosh "mongodb://<username>:<password>@<hostname>:<port>/<database>" \
-        --tls \
-        --tlsCAFile /path/to/ca.pem \
-        --tlsCertificateKeyFile /path/to/client.pem
+
+    mongosh "mongodb://<username>:<password>@<hostname>:<port>/<database>" \
+            --tls \
+            --tlsCAFile /path/to/ca.pem \
+            --tlsCertificateKeyFile /path/to/client.pem
+
 示例完整命令：
 假设您的 CA 证书文件为 /etc/ssl/mongodb/ca.pem，客户端证书文件为 /etc/ssl/mongodb/client.pem，并且 MongoDB 的用户名为 admin，密码为 password，数据库名为 mydatabase，可以使用以下命令：
 
 
  
-mongosh "mongodb://admin:password@mongodb:27017/mydatabase" \
-        --tls \
-        --tlsCAFile /etc/ssl/mongodb/ca.pem \
-        --tlsCertificateKeyFile /etc/ssl/mongodb/client.pem
+
+    mongosh "mongodb://admin:password@mongodb:27017/mydatabase" \
+            --tls \
+            --tlsCAFile /etc/ssl/mongodb/ca.pem \
+            --tlsCertificateKeyFile /etc/ssl/mongodb/client.pem
+
 常见问题排查
 证书格式问题：确保 .pem 格式的证书文件有效，并且没有损坏。
 证书路径问题：确保在 --tlsCAFile 和 --tlsCertificateKeyFile 参数中提供的路径正确无误。
@@ -160,5 +166,5 @@ MongoDB 认证问题：如果启用了认证，确保用户名和密码正确。
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjcxODk3MjddfQ==
+eyJoaXN0b3J5IjpbMTI3OTAzNTQzM119
 -->
