@@ -77,10 +77,12 @@ db.createUser({ user: "adminMainUser",pwd: "YpwsYYDS!ThisY957337!",roles: [{ rol
 
 确定实际读取节点
 可以在 mongosh 中执行：
-db.videos.find().limit(1).explain("executionStats")
+
+    db.videos.find().limit(1).explain("executionStats")
 
 在输出里找到：
-"server": "mongodb:27017"
+
+    "server": "mongodb:27017"
 
 
 主节点为hostname：b476bf2625d7，为docker中的hostname信息
@@ -90,5 +92,5 @@ db.videos.find().limit(1).explain("executionStats")
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDk0MTMyNF19
+eyJoaXN0b3J5IjpbOTc3NjIxMjY0XX0=
 -->
