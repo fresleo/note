@@ -44,37 +44,39 @@
 
     use admin
 
-db.createUser({ user: "adminMainUser",pwd: "YpwsYYDS!ThisY957337!",roles: [{ role: "readWrite", db: "mydatabase" }]})
+    db.createUser({ user: "adminMainUser",pwd: "YpwsYYDS!ThisY957337!",roles: [{ role: "readWrite", db: "mydatabase" }]})
 
 超级管理员：
-db.createUser({ user: "adminMainUser",pwd: "YpwsYYDS!ThisY957337!",roles: [ { role: "root", db: "admin" } ]})
+
+    db.createUser({ user: "adminMainUser",pwd: "YpwsYYDS!ThisY957337!",roles: [ { role: "root", db: "admin" } ]})
+
 启动容器并开启ca验证
 
- command: mongod --auth --bind_ip 0.0.0.0 \
-                  --tlsMode requireTLS \
-                  --tlsCertificateKeyFile /etc/ssl/mongodb/mongodb.pem \
-                  --tlsCAFile /etc/ssl/mongodb/ca.pem
+     command: mongod --auth --bind_ip 0.0.0.0 \
+                      --tlsMode requireTLS \
+                      --tlsCertificateKeyFile /etc/ssl/mongodb/mongodb.pem \
+                      --tlsCAFile /etc/ssl/mongodb/ca.pem
 
 
 
 可以用mongosh带 ca进入
 
-mongosh --host mongodb --port 27017 \
-        --tls \
-        --tlsCAFile /etc/ssl/mongodb/ca.pem \
-        --tlsCertificateKeyFile /etc/ssl/mongodb/mongodb.pem \
-        --username adminMainUser \
-        --password 'YpwsYYDS!ThisY957337!' \
-        --authenticationDatabase mydatabase
+    mongosh --host mongodb --port 27017 \
+            --tls \
+            --tlsCAFile /etc/ssl/mongodb/ca.pem \
+            --tlsCertificateKeyFile /etc/ssl/mongodb/mongodb.pem \
+            --username adminMainUser \
+            --password 'YpwsYYDS!ThisY957337!' \
+            --authenticationDatabase mydatabase
 
 
-mongodb://<credentials>@mongodb:27017/?directConnection=true&tls=true&tlsCAFile=%2Fetc%2Fssl%2Fmongodb%2Fca.pem&tlsCertificateKeyFile=%2Fetc%2Fssl%2Fmongodb%2Fmongodb.pem&authSource=mydatabase&appName=mongosh+2.2.6
+    mongodb://<credentials>@mongodb:27017/?directConnection=true&tls=true&tlsCAFile=%2Fetc%2Fssl%2Fmongodb%2Fca.pem&tlsCertificateKeyFile=%2Fetc%2Fssl%2Fmongodb%2Fmongodb.pem&authSource=mydatabase&appName=mongosh+2.2.6
 
 注意：密码有特殊字符的时候要使用引号括起来，现在删除原来的用户，并创建新的用户
 
 使用 dropUser 删除现有用户：
 
-db.dropUser("adminMainUser");
+    db.dropUser("adminMainUser");
 
 
 
@@ -92,13 +94,16 @@ MongoDB 配置了 TLS 和 CA 验证。
 
 
  
-command: mongod --auth --bind_ip 0.0.0.0 \
-                --tlsMode requireTLS \
-                --tlsCertificateKeyFile /etc/ssl/mongodb/mongodb.pem \
-                --tlsCAFile /etc/ssl/mongodb/ca.pem
-		--tlsMode requireTLS：确保连接必须使用 TLS。
-		--tlsCertificateKeyFile /path/to/mongodb.pem：指定 MongoDB 服务器证书和密钥文件。
-		--tlsCAFile /path/to/ca.pem：指定用于验证客户端证书的 CA 证书。
+
+    command: mongod --auth --bind_ip 0.0.0.0 \
+                    --tlsMode requireTLS \
+                    --tlsCertificateKeyFile /etc/ssl/mongodb/mongodb.pem \
+                    --tlsCAFile /etc/ssl/mongodb/ca.pem
+    		--tlsMode requireTLS：确保连接必须使用 TLS。
+    		--tlsCertificateKeyFile /path/to/mongodb.pem：指定 MongoDB 服务器证书和密钥文件。
+    		--tlsCAFile /path/to/ca.pem：指定用于验证客户端证书的 CA 证书。
+
+
 步骤 2：使用 mongosh 连接时启用 TLS 和 CA 验证
 假设您有以下文件：
 
@@ -155,5 +160,5 @@ MongoDB 认证问题：如果启用了认证，确保用户名和密码正确。
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxNTMzNzcwNV19
+eyJoaXN0b3J5IjpbLTE4MjcxODk3MjddfQ==
 -->
