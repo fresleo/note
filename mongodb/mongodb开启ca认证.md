@@ -2,42 +2,47 @@
 
 进入正在运行的 MongoDB 容器
 
-docker exec -it <container_name_or_id> bash
+    docker exec -it <container_name_or_id> bash
 
 2. 在 Docker 容器中安装 MongoDB CLI 工具
-apt-get update
-apt-get install -y mongodb-org-shell
+
+    apt-get update
+    apt-get install -y mongodb-org-shell
 
 3.修改 docker-compose.yml 启动 MongoDB（不启用 TLS）
 
-mongodb:
-  image: mongo:7.0.11
-  container_name: mongodb
-  restart: always
-  ports:
-    - "27017:27017"
-  volumes:
-    - mongodbdata:/data/db
-    - ./ssl/mongodb:/etc/ssl/mongodb  # 此处保留，后续会用于启用 TLS
-  networks:
-    - app-network
-  command: >
-    mongod --noauth --bind_ip 0.0.0.0
+    mongodb:
+      image: mongo:7.0.11
+      container_name: mongodb
+      restart: always
+      ports:
+        - "27017:27017"
+      volumes:
+        - mongodbdata:/data/db
+        - ./ssl/mongodb:/etc/ssl/mongodb  # 此处保留，后续会用于启用 TLS
+      networks:
+        - app-network
+      command: >
+        mongod --noauth --bind_ip 0.0.0.0
 
-检查是否无认证模式： docker exec -it mongodb mongosh --tls --tlsCAFile /etc/ssl/mongodb/ca.pem --tlsCertificateKeyFile /etc/ssl/mongodb/mongodb.pem --eval 'db.runCommand({ping: 1})'
+检查是否无认证模式： 
+
+    docker exec -it mongodb mongosh --tls --tlsCAFile /etc/ssl/mongodb/ca.pem --tlsCertificateKeyFile /etc/ssl/mongodb/mongodb.pem --eval 'db.runCommand({ping: 1})'
 
 4启动没有tsl的mongodb容器
-docker-compose up -d
+
+    docker-compose up -d
 
 
 连接到 MongoDB 并创建用户,使用mongosh
-docker exec -it mongodb  bash
 
-mongosh --host mongodb --port 27017 
+    docker exec -it mongodb  bash
+    
+    mongosh --host mongodb --port 27017 
 
-docker exec -it mongodb mongosh --tls  --tlsCAFile /etc/ssl/mongodb/ca.pem --tlsCertificateKeyFile /etc/ssl/mongodb/mongodb.pem --eval
+    docker exec -it mongodb mongosh --tls  --tlsCAFile /etc/ssl/mongodb/ca.pem --tlsCertificateKeyFile /etc/ssl/mongodb/mongodb.pem --eval
 
-use admin
+    use admin
 
 db.createUser({ user: "adminMainUser",pwd: "YpwsYYDS!ThisY957337!",roles: [{ role: "readWrite", db: "mydatabase" }]})
 
@@ -150,5 +155,5 @@ MongoDB 认证问题：如果启用了认证，确保用户名和密码正确。
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQxMDgyMjgxXX0=
+eyJoaXN0b3J5IjpbLTUxNTMzNzcwNV19
 -->
