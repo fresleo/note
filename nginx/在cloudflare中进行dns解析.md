@@ -3,7 +3,7 @@
 
 ---
 
-<p>步骤 1: 在 Cloudflare 注册账户并添加域名</p>
+**<p>步骤 1: 在 Cloudflare 注册账户并添加域名</p>**
 <p>注册并登录到 Cloudflare：</p>
 <p>访问 Cloudflare 官网 并创建一个账户，或者登录你现有的 Cloudflare 账户。</p>
 <p>添加域名到 Cloudflare：</p>
@@ -58,5 +58,5 @@ server_name <a href="http://example.com">example.com</a> <a href="http://www.exa
 sudo systemctl restart nginx</p>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjM4MDQyNzBdfQ==
+eyJoaXN0b3J5IjpbLTE1NTIzODY3OThdfQ==
 -->
