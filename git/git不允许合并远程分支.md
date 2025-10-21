@@ -14,6 +14,9 @@ Git 不允许直接合并远程分支
     
 -   `git clean -fd`：删除所有未被 git 跟踪的文件和文件夹（例如新建但未 `git add` 的文件）。
 
+
+丢弃工作区的修改：
+git  reset  --hard  HEAD
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4ODY4NjE2M119
+eyJoaXN0b3J5IjpbLTE1NjQxNjU2NjAsLTU4ODY4NjE2M119
 -->
