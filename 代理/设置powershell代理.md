@@ -1,4 +1,6 @@
 
+下面给出在 Windows PowerShell 中设置代理的常用方式。按需选择其一或组合使用。
+
 一、仅当前会话生效（关闭窗口失效）
 ````powershell
 # 基本代理（如需账号密码，按需加入 user:pass@）
@@ -61,5 +63,5 @@ Invoke-RestMethod https://api.ipify.org?format=json
 - 带鉴权代理可用 http://user:pass@proxy.host:port，但不建议明文保存；优先用 -ProxyCredential。
 - npm/yarn/git 等工具通常读取这些环境变量，但它们也有各自的独立代理配置（例如 npm config set proxy/https-proxy）。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NTYwMTg4MTVdfQ==
+eyJoaXN0b3J5IjpbLTE2OTA1MTk5NDddfQ==
 -->
