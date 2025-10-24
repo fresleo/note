@@ -1,9 +1,7 @@
 ## 检查当前代理配置
 
     npm  config  get  proxy
-    
     npm  config  get  https-proxy
-    
     npm  config  get  registry
 
 ## 如何配置代理
@@ -16,9 +14,17 @@
 
 ### 2.  **设置环境变量**
 
+    set HTTP_PROXY=http://proxy.company.com:8080
+    set HTTPS_PROXY=http://proxy.company.com:8080
+
 ### 3.  **使用淘宝镜像（国内推荐）**
 
+    npm config set registry https://registry.npmmirror.com
+
 ### 4.  **临时使用代理运行命令**
+
+    set HTTP_PROXY=http://proxy.com:8080 && ionic start myApp tabs --type vue
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDQ5NzE1NTBdfQ==
+eyJoaXN0b3J5IjpbLTEwNzMwODEzOTZdfQ==
 -->
