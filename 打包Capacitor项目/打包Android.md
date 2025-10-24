@@ -4,12 +4,12 @@
 &  "$env:JAVA_HOME\bin\keytool.exe"  -genkeypair -v -keystore "E:\jianzhan\dockerProje\houxiansheng\my-vue-capacitor-app\android\app\src\myapp.jks"  -alias "Houxiansheng"  -keyalg RSA -keysize 2048  -validity 36500  -storepass "123Cyfcyf"  -keypass "123Cyfcyf"  -dname "CN=Your Name, OU=Dev, O=YourOrg, L=City, S=Province, C=CN"
 
 
-2.local.properties确保sdk位置：
+2.my-vue-capacitor-app\android\local.properties确保sdk位置：
 
 sdk.dir=C\:\\Users\\cyf\\AppData\\Local\\Android\\Sdk
 
 
-
+3.my-vue-capacitor-app\android\app\build.gradle配置jdkw
 
 
 运行打包的bat
@@ -299,6 +299,6 @@ sdk.dir=C\:\\Users\\cyf\\AppData\\Local\\Android\\Sdk
     exit /b 1
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxMTI4NTg5Miw5MjExNjMyNDQsMTY3OD
-Q0MTAxMl19
+eyJoaXN0b3J5IjpbOTkzNjAyMDI2LC05MTEyODU4OTIsOTIxMT
+YzMjQ0LDE2Nzg0NDEwMTJdfQ==
 -->
