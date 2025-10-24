@@ -2,6 +2,8 @@
 
 &  "$env:JAVA_HOME\bin\keytool.exe"  -genkeypair -v -keystore "E:\jianzhan\dockerProje\houxiansheng\my-vue-capacitor-app\android\app\src\myapp.jks"  -alias "Houxiansheng"  -keyalg RSA -keysize 2048  -validity 36500  -storepass "123Cyfcyf"  -keypass "123Cyfcyf"  -dname "CN=Your Name, OU=Dev, O=YourOrg, L=City, S=Province, C=CN"
 
+
+运行da
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczMzM2OTEwMiwxNjc4NDQxMDEyXX0=
+eyJoaXN0b3J5IjpbLTE2MDI4MDA0OTUsMTY3ODQ0MTAxMl19
 -->
