@@ -9,25 +9,25 @@
     sdk.dir=C\:\\Users\\cyf\\AppData\\Local\\Android\\Sdk
 
 
-3.my-vue-capacitor-app\android\app\build.gradle配置jdk路径：
+3设置代理：my-vue-capacitor-app\android\gradle.properties
 
-    repositories {
+    systemProp.http.proxyHost=127.0.0.1
     
-    flatDir{
+    systemProp.http.proxyPort=10809
     
-    dirs  '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    systemProp.https.proxyHost=127.0.0.1
     
-    }
+    systemProp.https.proxyPort=10809
     
-    compileOptions {
+      
+      
     
-    sourceCompatibility  JavaVersion.VERSION_17
+    org.gradle.jvmargs=-Xmx1536m -Djavax.net.ssl.trustAll=true -Djdk.http.auth.tunneling.disabledSchemes=""
     
-    targetCompatibility  JavaVersion.VERSION_17
+      
+      
     
-    }
-    
-    }
+    systemProp.http.nonProxyHosts=localhost|127.*|[::1]
 
 运行打包的bat
 
@@ -316,6 +316,6 @@
     exit /b 1
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Nzg5NTIwOTAsLTkxMTI4NTg5Miw5Mj
-ExNjMyNDQsMTY3ODQ0MTAxMl19
+eyJoaXN0b3J5IjpbMTk5MDI4ODkyMiwtMTg3ODk1MjA5MCwtOT
+ExMjg1ODkyLDkyMTE2MzI0NCwxNjc4NDQxMDEyXX0=
 -->
