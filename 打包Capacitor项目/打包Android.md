@@ -1,16 +1,33 @@
 1确保有javahome的环境变量，可以改动的部分 -alias -storepass  -keypass
 
 
-&  "$env:JAVA_HOME\bin\keytool.exe"  -genkeypair -v -keystore "E:\jianzhan\dockerProje\houxiansheng\my-vue-capacitor-app\android\app\src\myapp.jks"  -alias "Houxiansheng"  -keyalg RSA -keysize 2048  -validity 36500  -storepass "123Cyfcyf"  -keypass "123Cyfcyf"  -dname "CN=Your Name, OU=Dev, O=YourOrg, L=City, S=Province, C=CN"
+    &  "$env:JAVA_HOME\bin\keytool.exe"  -genkeypair -v -keystore "E:\jianzhan\dockerProje\houxiansheng\my-vue-capacitor-app\android\app\src\myapp.jks"  -alias "Houxiansheng"  -keyalg RSA -keysize 2048  -validity 36500  -storepass "123Cyfcyf"  -keypass "123Cyfcyf"  -dname "CN=Your Name, OU=Dev, O=YourOrg, L=City, S=Province, C=CN"
 
 
 2.my-vue-capacitor-app\android\local.properties确保sdk位置：
 
-sdk.dir=C\:\\Users\\cyf\\AppData\\Local\\Android\\Sdk
+    sdk.dir=C\:\\Users\\cyf\\AppData\\Local\\Android\\Sdk
 
 
-3.my-vue-capacitor-app\android\app\build.gradle配置jdkw
+3.my-vue-capacitor-app\android\app\build.gradle配置jdk路径：
 
+    repositories {
+    
+    flatDir{
+    
+    dirs  '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    
+    }
+    
+    compileOptions {
+    
+    sourceCompatibility  JavaVersion.VERSION_17
+    
+    targetCompatibility  JavaVersion.VERSION_17
+    
+    }
+    
+    }
 
 运行打包的bat
 
@@ -299,6 +316,6 @@ sdk.dir=C\:\\Users\\cyf\\AppData\\Local\\Android\\Sdk
     exit /b 1
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTkzNjAyMDI2LC05MTEyODU4OTIsOTIxMT
-YzMjQ0LDE2Nzg0NDEwMTJdfQ==
+eyJoaXN0b3J5IjpbLTE4Nzg5NTIwOTAsLTkxMTI4NTg5Miw5Mj
+ExNjMyNDQsMTY3ODQ0MTAxMl19
 -->
