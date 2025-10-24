@@ -15,6 +15,18 @@
 
 二、持久化到用户环境变量（新开终端后生效）
 
+ 推荐方式（可清空删除）
+ 
+[Environment]::SetEnvironmentVariable("HTTP_PROXY",  "http://proxy.host:8080", "User")
+[Environment]::SetEnvironmentVariable("HTTPS_PROXY", "http://proxy.host:8080", "User")
+[Environment]::SetEnvironmentVariable("NO_PROXY",    "localhost;127.0.0.1;.company.local", "User")
+
+ 取消持久化
+
+[Environment]::SetEnvironmentVariable("HTTP_PROXY",  $null, "User")
+[Environment]::SetEnvironmentVariable("HTTPS_PROXY", $null, "User")
+[Environment]::SetEnvironmentVariable("NO_PROXY",    $null, "User")
+
 三、设置系统 WinHTTP 代理（部分系统服务/工具使用）  
 需要管理员权限的 PowerShell。
 
@@ -31,5 +43,5 @@
 -   带鉴权代理可用 http://user:pass@proxy.host:port，但不建议明文保存；优先用 -ProxyCredential。
 -   npm/yarn/git 等工具通常读取这些环境变量，但它们也有各自的独立代理配置（例如 npm config set proxy/https-proxy）。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzgzMjM0MTVdfQ==
+eyJoaXN0b3J5IjpbLTE1Nzc4NDg2NDNdfQ==
 -->
