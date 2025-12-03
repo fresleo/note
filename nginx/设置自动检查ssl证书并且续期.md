@@ -36,7 +36,49 @@
 记住：这个 Token 之后不能再次查看，如果忘记就要重新生成。
 
 
-#第三步：在宿主机创建 API Token 文件（cf.ini）
+# 第三步：在宿主机创建 API Token 文件（cf.ini）
+
+在你的服务器上运行：
+
+`mkdir -p /root/.secrets
+nano /root/.secrets/cf.ini` 
+
+文件内容写：
+
+`dns_cloudflare_api_token = YOUR_TOKEN_HERE` 
+
+示例：
+
+`dns_cloudflare_api_token = qazwsx1234567890poiuytre` 
+
+保存并退出 (`Ctrl + O`, 回车, `Ctrl + X`)
+
+
+# 第四步：设置文件权限（非常关键）
+
+Certbot **要求权限必须是 600，否则会拒绝读取**：
+
+`chmod 600 /root/.secrets/cf.ini` 
+
+查看是否生效：
+
+`ls -l /root/.secrets/cf.ini` 
+
+应该显示类似：
+
+`-rw------- 1 root root  70 Dec  3 20:10 cf.ini`
+
+# 第五步：运行你的 Certbot Docker 命令
+
+现在你的命令就能正常工作了：
+
+`docker run -it --rm \
+  -v /etc/letsencrypt:/etc/letsencrypt \
+  -v /root/.secrets/cf.ini:/etc/letsencrypt/cloudflare.ini:ro \
+  certbot/dns-cloudflare certonly \
+  --dns-cloudflare \
+  --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini \
+  -d "*.avmonkey.tv" -d "avmonkey.tv"`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkxMjU0ODY1Ml19
+eyJoaXN0b3J5IjpbODExOTgzNTAyXX0=
 -->
