@@ -175,19 +175,6 @@ Fri 2025-12-05  02:00:00 UTC 1h  30min     Thu 2025-12-04  02:00:00 UTC 23h ago 
 
 ----------
 
- 4️⃣ 小技巧
-
--   如果你想 **快速测试每天一次的 timer**，可以临时修改 timer 的 `OnCalendar` 为每分钟触发：
-    
-
-`[Timer]  OnCalendar=*-*-* *:*:00` 
-
-然后：
-
-`sudo systemctl daemon-reload
-sudo systemctl restart certbot-renew.timer`
-
-
 查看日志：
 
     sudo systemctl status certbot-renew.service
@@ -205,7 +192,7 @@ sudo systemctl restart certbot-renew.timer`
     
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxNDYwNzQyNSwxMjIzMzk2NTQ3LC0xNz
+eyJoaXN0b3J5IjpbLTUxNTE3MDk4NywxMjIzMzk2NTQ3LC0xNz
 c5NDA4NzUzLC0zNDY3MDExNzQsLTc1Mzg4MDI1NSwtMTg2NjIw
 Mzg2MiwyMTIwMDk4MTk4LC0xMDE3Mjk4MjYwLC0yMTMyNzIxMz
 IzLDE4OTU2MzY3MCw4MTE5ODM1MDJdfQ==
