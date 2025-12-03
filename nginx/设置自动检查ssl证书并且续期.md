@@ -106,10 +106,23 @@ docker run --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/e
     ExecStart=/usr/bin/docker run --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/etc/letsencrypt/cloudflare.ini:ro certbot/dns-cloudflare renew --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini
     ExecStartPost=/bin/systemctl reload nginx
 
+2.  创建 timer 文件 `/etc/systemd/system/certbot-renew.timer`：
+    
 
+`[Unit]  Description=Run certbot-renew daily [Timer]  OnCalendar=daily Persistent=true  [Install]  WantedBy=timers.target` 
+
+3.  启动并启用 timer：
+    
+
+`sudo systemctl daemon-reload
+sudo systemctl enable --now certbot-renew.timer` 
+
+-   这样系统每天会自动运行续签
+    
+-   `Persistent=true` → 如果服务器关机错过一次，会在开机后补上
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQzMTU4ODAxLDIxMjAwOTgxOTgsLTEwMT
-cyOTgyNjAsLTIxMzI3MjEzMjMsMTg5NTYzNjcwLDgxMTk4MzUw
-Ml19
+eyJoaXN0b3J5IjpbLTE4NjYyMDM4NjIsMjEyMDA5ODE5OCwtMT
+AxNzI5ODI2MCwtMjEzMjcyMTMyMywxODk1NjM2NzAsODExOTgz
+NTAyXX0=
 -->
