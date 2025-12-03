@@ -93,7 +93,10 @@ docker run --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/e
     
 
 `0 2 * * * docker run --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/etc/letsencrypt/cloudflare.ini:ro certbot/dns-cloudflare renew --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini && systemctl reload nginx`
+
+#方法2
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyMDA5ODE5OCwtMTAxNzI5ODI2MCwtMj
-EzMjcyMTMyMywxODk1NjM2NzAsODExOTgzNTAyXX0=
+eyJoaXN0b3J5IjpbLTI1MDM2NDE5MywyMTIwMDk4MTk4LC0xMD
+E3Mjk4MjYwLC0yMTMyNzIxMzIzLDE4OTU2MzY3MCw4MTE5ODM1
+MDJdfQ==
 -->
