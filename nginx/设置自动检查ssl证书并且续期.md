@@ -186,8 +186,11 @@ Fri 2025-12-05  02:00:00 UTC 1h  30min     Thu 2025-12-04  02:00:00 UTC 23h ago 
 
 `sudo systemctl daemon-reload
 sudo systemctl restart certbot-renew.timer`
+
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1Mzg4MDI1NSwtMTg2NjIwMzg2MiwyMT
-IwMDk4MTk4LC0xMDE3Mjk4MjYwLC0yMTMyNzIxMzIzLDE4OTU2
-MzY3MCw4MTE5ODM1MDJdfQ==
+eyJoaXN0b3J5IjpbLTQ2NzkyMzMxNywtNzUzODgwMjU1LC0xOD
+Y2MjAzODYyLDIxMjAwOTgxOTgsLTEwMTcyOTgyNjAsLTIxMzI3
+MjEzMjMsMTg5NTYzNjcwLDgxMTk4MzUwMl19
 -->
