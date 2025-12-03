@@ -77,8 +77,12 @@ docker run -it --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.in
 ```
 
 
-# 自动续期
+# 自动续期（结合 **Certbot 的 renew 功能 + 定时任务（cron 或 systemd timer）**）
+
+
+续签命令已经写好了：
+docker run -it --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/etc/letsencrypt/cloudflare.ini:ro certbot/dns-cloudflare renew --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NzEyMDc5MTcsMTg5NTYzNjcwLDgxMT
+eyJoaXN0b3J5IjpbLTIxMzI3MjEzMjMsMTg5NTYzNjcwLDgxMT
 k4MzUwMl19
 -->
