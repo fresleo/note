@@ -122,8 +122,26 @@ docker run --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/e
     
 -   `Persistent=true` → 如果服务器关机错过一次，会在开机后补上
 
+# 测试是否可以运行
+
+1️⃣ 查看 timer 状态
+
+    sudo systemctl list-timers certbot-renew.timer
+
+
+
+输出示例：
+
+`NEXT                         LEFT          LAST                         PASSED       UNIT                  ACTIVATES
+Fri 2025-12-05  02:00:00 UTC 1h  30min     Thu 2025-12-04  02:00:00 UTC 23h ago      certbot-renew.timer   certbot-renew.service`
+
+-   `NEXT` → 下一次触发时间
+    
+-   `LAST` → 上一次触发时间
+    
+-   `ACTIVATES` → 触发哪个 service（你的 `certbot-renew.service`）
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE5MjIyLC0xODY2MjAzODYyLDIxMjAwOT
-gxOTgsLTEwMTcyOTgyNjAsLTIxMzI3MjEzMjMsMTg5NTYzNjcw
-LDgxMTk4MzUwMl19
+eyJoaXN0b3J5IjpbLTUwNTUxNTg0OCwtMTg2NjIwMzg2MiwyMT
+IwMDk4MTk4LC0xMDE3Mjk4MjYwLC0yMTMyNzIxMzIzLDE4OTU2
+MzY3MCw4MTE5ODM1MDJdfQ==
 -->
