@@ -193,9 +193,7 @@ sudo systemctl restart certbot-renew.timer`
     sudo systemctl status certbot-renew.service
 
 
-# **更新了 systemd service 文件后**，需要执行几个步骤让修改生效：
 
-----------
 
 ## 1️⃣ 重新加载 systemd 配置
 
@@ -206,46 +204,9 @@ sudo systemctl restart certbot-renew.timer`
 -   如果不执行，systemd 仍然使用旧配置
     
 
-----------
-
-## 2️⃣ 重启或重新启用 service（可选）
-
-如果你想 **立即测试 service**：
-
-`sudo systemctl restart certbot-renew.service` 
-
--   这会执行 ExecStart + ExecStartPost
-    
-
-查看状态：
-
-`sudo systemctl status certbot-renew.service` 
-
-----------
-
-## 3️⃣ 重启 timer（如果有 timer 触发）
-
-`sudo systemctl restart certbot-renew.timer` 
-
--   确保 timer 绑定的 service 使用的是最新配置
-    
--   查看 timer 状态：
-    
-
-`sudo systemctl list-timers certbot-renew.timer` 
-
-----------
-
-## 4️⃣ 查看日志确认执行结果
-
-`sudo journalctl -u certbot-renew.service -f` 
-
--   实时输出 service 执行日志
-    
--   检查 Docker Certbot 是否正常运行，Nginx 是否 reload
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyMzM5NjU0NywtMTc3OTQwODc1MywtMz
-Q2NzAxMTc0LC03NTM4ODAyNTUsLTE4NjYyMDM4NjIsMjEyMDA5
-ODE5OCwtMTAxNzI5ODI2MCwtMjEzMjcyMTMyMywxODk1NjM2Nz
-AsODExOTgzNTAyXX0=
+eyJoaXN0b3J5IjpbMTgxNDYwNzQyNSwxMjIzMzk2NTQ3LC0xNz
+c5NDA4NzUzLC0zNDY3MDExNzQsLTc1Mzg4MDI1NSwtMTg2NjIw
+Mzg2MiwyMTIwMDk4MTk4LC0xMDE3Mjk4MjYwLC0yMTMyNzIxMz
+IzLDE4OTU2MzY3MCw4MTE5ODM1MDJdfQ==
 -->
