@@ -81,8 +81,8 @@ docker run -it --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.in
 
 
 续签命令已经写好了：
-docker run -it --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/etc/letsencrypt/cloudflare.ini:ro certbot/dns-cloudflare renew --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini
+docker run  --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/etc/letsencrypt/cloudflare.ini:ro certbot/dns-cloudflare renew --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzI3MjEzMjMsMTg5NTYzNjcwLDgxMT
-k4MzUwMl19
+eyJoaXN0b3J5IjpbMTY1NDk3MDI5NSwtMjEzMjcyMTMyMywxOD
+k1NjM2NzAsODExOTgzNTAyXX0=
 -->
