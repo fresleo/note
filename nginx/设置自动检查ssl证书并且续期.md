@@ -140,8 +140,54 @@ Fri 2025-12-05  02:00:00 UTC 1h  30min     Thu 2025-12-04  02:00:00 UTC 23h ago 
 -   `LAST` → 上一次触发时间
     
 -   `ACTIVATES` → 触发哪个 service（你的 `certbot-renew.service`）
+
+2️⃣ 手动触发 timer（测试运行）
+
+`sudo systemctl start certbot-renew.timer` 
+
+> 仅触发 timer，会启动对应的 service（oneshot 类型）。
+
+或者直接 **手动触发 service** 以模拟续签：
+
+`sudo systemctl start certbot-renew.service` 
+
+-   这样可以观察 Docker 是否运行、证书是否续签、Nginx 是否 reload
+    
+-   建议加 `--no-pager` 或 `journalctl` 查看日志：
+    
+
+`sudo journalctl -u certbot-renew.service -f` 
+
+> `-f` 会实时输出服务日志，方便你确认 Docker 命令执行是否正常
+
+----------
+
+3️⃣ 检查续签结果
+
+执行 service 后，可以用 Certbot 查看证书：
+
+`docker run --rm -v /etc/letsencrypt:/etc/letsencrypt certbot certificates` 
+
+-   检查 `/live/avmonkey.tv` 证书的 **Expiry Date** 是否被刷新
+    
+-   如果 Docker + Cloudflare API 配置正确，Certbot 会自动判断是否需要续签
+    
+
+----------
+
+ 4️⃣ 小技巧
+
+-   如果你想 **快速测试每天一次的 timer**，可以临时修改 timer 的 `OnCalendar` 为每分钟触发：
+    
+
+`[Timer]  OnCalendar=*-*-* *:*:00` 
+
+然后：
+
+`sudo systemctl daemon-reload
+sudo systemctl restart certbot-renew.timer`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwNTUxNTg0OCwtMTg2NjIwMzg2MiwyMT
+eyJoaXN0b3J5IjpbLTc1Mzg4MDI1NSwtMTg2NjIwMzg2MiwyMT
 IwMDk4MTk4LC0xMDE3Mjk4MjYwLC0yMTMyNzIxMzIzLDE4OTU2
 MzY3MCw4MTE5ODM1MDJdfQ==
 -->
