@@ -193,7 +193,7 @@ sudo systemctl restart certbot-renew.timer`
     sudo systemctl status certbot-renew.service
 
 
-在 Debian 上，**更新了 systemd service 文件后**，需要执行几个步骤让修改生效：
+# **更新了 systemd service 文件后**，需要执行几个步骤让修改生效：
 
 ----------
 
@@ -244,8 +244,8 @@ sudo systemctl restart certbot-renew.timer`
     
 -   检查 Docker Certbot 是否正常运行，Nginx 是否 reload
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Nzk0MDg3NTMsLTM0NjcwMTE3NCwtNz
-UzODgwMjU1LC0xODY2MjAzODYyLDIxMjAwOTgxOTgsLTEwMTcy
-OTgyNjAsLTIxMzI3MjEzMjMsMTg5NTYzNjcwLDgxMTk4MzUwMl
-19
+eyJoaXN0b3J5IjpbMTIyMzM5NjU0NywtMTc3OTQwODc1MywtMz
+Q2NzAxMTc0LC03NTM4ODAyNTUsLTE4NjYyMDM4NjIsMjEyMDA5
+ODE5OCwtMTAxNzI5ODI2MCwtMjEzMjcyMTMyMywxODk1NjM2Nz
+AsODExOTgzNTAyXX0=
 -->
