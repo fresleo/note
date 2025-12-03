@@ -82,7 +82,18 @@ docker run -it --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.in
 
 续签命令已经写好了（去掉-it模式）：
 docker run --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/etc/letsencrypt/cloudflare.ini:ro certbot/dns-cloudflare renew --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini
+
+# 在 cron 中添加任务
+1.  编辑 root 的 crontab：
+    
+
+`sudo crontab -e` 
+
+2.  添加一条每天凌晨执行的任务（假设每天 2 点）：
+    
+
+`0 2 * * * docker run --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/etc/letsencrypt/cloudflare.ini:ro certbot/dns-cloudflare renew --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini && systemctl reload nginx`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTcyOTgyNjAsLTIxMzI3MjEzMjMsMT
-g5NTYzNjcwLDgxMTk4MzUwMl19
+eyJoaXN0b3J5IjpbMjEyMDA5ODE5OCwtMTAxNzI5ODI2MCwtMj
+EzMjcyMTMyMywxODk1NjM2NzAsODExOTgzNTAyXX0=
 -->
