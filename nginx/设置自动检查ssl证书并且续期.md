@@ -72,13 +72,9 @@ Certbot **要求权限必须是 600，否则会拒绝读取**：
 
 现在你的命令就能正常工作了：
 
-`docker run -it --rm \
-  -v /etc/letsencrypt:/etc/letsencrypt \
-  -v /root/.secrets/cf.ini:/etc/letsencrypt/cloudflare.ini:ro \
-  certbot/dns-cloudflare certonly \
-  --dns-cloudflare \
-  --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini \
-  -d "*.avmonkey.tv" -d "avmonkey.tv"`
+```
+docker run -it --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/etc/letsencrypt/cloudflare.ini:ro certbot/dns-cloudflare certonly --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini -d "*.avmonkey.tv" -d "avmonkey.tv"
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODExOTgzNTAyXX0=
+eyJoaXN0b3J5IjpbMTg5NTYzNjcwLDgxMTk4MzUwMl19
 -->
