@@ -94,9 +94,22 @@ docker run --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/e
 
 `0 2 * * * docker run --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/etc/letsencrypt/cloudflare.ini:ro certbot/dns-cloudflare renew --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini && systemctl reload nginx`
 
-#方法2
+# 方法2
+使用 systemd timer
+1.  创建 service 文件 `/etc/systemd/system/certbot-renew.service`：
+
+    [Unit]
+    Description=Renew Let's Encrypt certificates using Docker
+    
+    [Service]
+    Type=oneshot
+    ExecStart=/usr/bin/docker run --rm -v /etc/letsencrypt:/etc/letsencrypt -v /root/.secrets/cf.ini:/etc/letsencrypt/cloudflare.ini:ro certbot/dns-cloudflare renew --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini
+    ExecStartPost=/bin/systemctl reload nginx
+
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1MDM2NDE5MywyMTIwMDk4MTk4LC0xMD
-E3Mjk4MjYwLC0yMTMyNzIxMzIzLDE4OTU2MzY3MCw4MTE5ODM1
-MDJdfQ==
+eyJoaXN0b3J5IjpbOTQzMTU4ODAxLDIxMjAwOTgxOTgsLTEwMT
+cyOTgyNjAsLTIxMzI3MjEzMjMsMTg5NTYzNjcwLDgxMTk4MzUw
+Ml19
 -->
