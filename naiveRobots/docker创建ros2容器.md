@@ -4,43 +4,7 @@
 
 ----------
 
-# ✅ 3. 说明每一行
-
-配置
-
-作用
-
-version
-
-Docker Compose 版本
-
-services
-
-定义服务（容器）
-
-image
-
-使用官方 ROS2 Humble 镜像
-
-container_name
-
-容器名字
-
-tty / stdin_open
-
-保持交互终端可用
-
-network_mode: host
-
-让容器网络和宿主机一致（Mac/Win 可去掉，用端口映射）
-
-volumes
-
-映射本地工作空间到容器内
-
-command
-
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0MTg4MDEwNywxMzcyNzI4OTY1XX0=
+eyJoaXN0b3J5IjpbMTQyMzg4NzE1OSwxMzcyNzI4OTY1XX0=
 -->
