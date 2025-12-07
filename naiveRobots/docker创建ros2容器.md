@@ -40,7 +40,7 @@ volumes
 
 command
 
-启动后执行的命令，这里用 bash
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3MjcyODk2NV19
+eyJoaXN0b3J5IjpbLTQ0MTg4MDEwNywxMzcyNzI4OTY1XX0=
 -->
