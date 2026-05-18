@@ -1,5 +1,3 @@
-已成功从PDF文件中提取台词内容。以下是《How I Met Your Mother》试播集的部分台词摘录：
-
 Ted (旁白): Okay. You guys are old enough. I'm gonna tell you the story of how I met your mother.
 
 Daughter: Heard it.
@@ -219,5 +217,5 @@ Narrator (V.O.): And there she was.
 We see who he's looking at: standing between two of her friends, Robin Scherbatsky looks back at Ted.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA5MzM2ODgxXX0=
+eyJoaXN0b3J5IjpbLTE4OTczOTk3NTAsNDA5MzM2ODgxXX0=
 -->
