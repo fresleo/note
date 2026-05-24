@@ -14,17 +14,12 @@ sysctl net.ipv4.tcp_congestion_control
 如果没开，如何在 Debian 12 上开启 BBR？
 开启 BBR 非常简单，不需要安装任何额外软件，只需两步：
 
-第一步：将 BBR 配置写入系统设置
-直接复制并运行以下整段命令，它会将开启 BBR 所需的参数写入到系统配置文件中：
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.d/99-bbr.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.d/99-bbr.conf
+然后使配置生效：
 
+sysctl --system
+验证一下：
 
-sudo bash -c 'cat > /etc/sysctl.d/99-bbr.conf << EOF
-net.core.default_qdisc=fq
-net.ipv4.tcp_congestion_control=bbr
-EOF'
-第二步：使配置立即生效
-运行以下命令刷新系统配置，无需重启服务器：
-
-
-sudo sysctl --system
-执行完后，你可以再次运行前面的 sysctl net.ipv4.tcp_congestion_control 命令，只要看到输出变成 bbr，就说明你的 Debian 12 已经成功起飞，网络加速生效了！
+sysctl net.ipv4.tcp_congestion_control
+这时候应该就会完美输出 net.ipv4.tcp_congestion_control = bbr 了！
