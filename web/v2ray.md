@@ -1,5 +1,4 @@
-v2ray:bash <(curl -s -L https://git.io/v2ray-setup.sh)
-
+v2ray:bash <(curl -sL https://git.io/v2ray.sh)
 如何检查 BBR 是否已开启？
 请在 Debian 12 终端中运行以下两条命令：
 
