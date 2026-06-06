@@ -3,9 +3,9 @@
 **打开powershell**
 
     netsh winhttp set proxy 127.0.0.1:10808
-    
-set http_proxy=http://127.0.0.1:10808 
-set https_proxy=http://127.0.0.1:10808
+        
+    set http_proxy=http://127.0.0.1:10808 
+    set https_proxy=http://127.0.0.1:10808
 
 
 ### 🌟 终极省心大招（永久生效）
@@ -14,16 +14,14 @@ set https_proxy=http://127.0.0.1:10808
 
 以**管理员身份**打开 CMD，运行以下两行：
 
-DOS
 
-```
-setx http_proxy "http://127.0.0.1:10808" /M
-setx https_proxy "http://127.0.0.1:10808" /M
-```
+    setx http_proxy "http://127.0.0.1:10808" /M
+    setx https_proxy "http://127.0.0.1:10808" /M
+
 **查看**
 
     netsh winhttp show proxy
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDc1Nzg4NDgsODgzMzA5N119
+eyJoaXN0b3J5IjpbLTEzMDk1MjE3MDIsODgzMzA5N119
 -->
