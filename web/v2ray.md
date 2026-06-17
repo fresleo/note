@@ -25,3 +25,12 @@ sysctl --system
 
 sysctl net.ipv4.tcp_congestion_control
 这时候应该就会完美输出 net.ipv4.tcp_congestion_control = bbr 了！
+
+
+使用域名代理(拯救ip)
+
+
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEwMTEwMTQ5MTddfQ==
+-->
