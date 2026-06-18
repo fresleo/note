@@ -1,0 +1,45 @@
+cloudflare节点代码：
+linux：
+for d in cua-chat-ui.tesla.com iosapps.itunes.apple.com prod.us-east-1.ui.gcr-chat.marketing.aws.dev tag-logger.demandbase.com fpinit.itunes.apple.com amp-api-edge.apps.apple.com th.bing.com logx.optimizely.com r.bing.com cdn77.api.userway.org ; do t1=$(date +%s%3N); timeout 1 openssl s_client -connect $d:443 -servername $d </dev/null &>/dev/null && t2=$(date +%s%3N) && echo "$d: $((t2 - t1)) ms" || echo "$d: timeout"; done
+
+mac：
+for d in cua-chat-ui.tesla.com iosapps.itunes.apple.com prod.us-east-1.ui.gcr-chat.marketing.aws.dev tag-logger.demandbase.com fpinit.itunes.apple.com amp-api-edge.apps.apple.com th.bing.com logx.optimizely.com r.bing.com cdn77.api.userway.org; do
+  t1=$(perl -MTime::HiRes=time -e 'printf "%.0f\n", time * 1000')
+  if ps -p $$ -o comm= | grep -q zsh; then
+    # Mac Zsh 兼容的超时的 TLS 握手测试
+    (openssl s_client -connect $d:443 -servername $d </dev/null >/dev/null 2>&1) & pid=$!
+    (sleep 1; kill $pid 2>/dev/null) & waiter=$!
+    if wait $pid 2>/dev/null; then
+      kill $waiter 2>/dev/null
+      t2=$(perl -MTime::HiRes=time -e 'printf "%.0f\n", time * 1000')
+      echo "$d: $((t2 - t1)) ms"
+    else
+      echo "$d: timeout"
+    fi
+  fi
+done
+
+windows：
+
+$domains = @(
+    "cua-chat-ui.tesla.com", "iosapps.itunes.apple.com", 
+    "prod.us-east-1.ui.gcr-chat.marketing.aws.dev", "tag-logger.demandbase.com", 
+    "fpinit.itunes.apple.com", "amp-api-edge.apps.apple.com", 
+    "th.bing.com", "logx.optimizely.com", "r.bing.com", "cdn77.api.userway.org"
+)
+
+foreach ($d in $domains) {
+    $sw = [System.Diagnostics.Stopwatch]::StartNew()
+    $client = New-Object System.Net.Sockets.TcpClient
+    $connect = $client.BeginConnect($d, 443, $null, $null)
+    $success = $connect.AsyncWaitHandle.WaitOne(1000, $false)
+    
+    if ($success) {
+        $client.EndConnect($connect)
+        $sw.Stop()
+        Write-Host "$d: $($sw.ElapsedMilliseconds) ms" -ForegroundColor Green
+    } else {
+        Write-Host "$d: timeout" -ForegroundColor Red
+    }
+    if ($client.Connected) { $client.Close() }
+}
