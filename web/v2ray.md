@@ -1,3 +1,6 @@
+cloudflare节点代码：
+
+for d in cua-chat-ui.tesla.com iosapps.itunes.apple.com prod.us-east-1.ui.gcr-chat.marketing.aws.dev tag-logger.demandbase.com fpinit.itunes.apple.com amp-api-edge.apps.apple.com th.bing.com logx.optimizely.com r.bing.com cdn77.api.userway.org ; do t1=$(date +%s%3N); timeout 1 openssl s_client -connect $d:443 -servername $d </dev/null &>/dev/null && t2=$(date +%s%3N) && echo "$d: $((t2 - t1)) ms" || echo "$d: timeout"; done
 
 sudo timedatectl set-timezone Asia/Shanghai
 
