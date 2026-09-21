@@ -1,4 +1,5 @@
-1 定义公共属性
+**1 定义公共属性**
+
 例如：
 //定义公共属性  
 static PropertyType<Vector3> SimulationAreaSizeProperty;  
@@ -10,7 +11,8 @@ static kanzi::PropertyType<bool> ShowBoundsProperty;
 static kanzi::PropertyType<bool> SimulationEnabledProperty;
 
 
-2.定义宏数据——hpp
+**2.定义宏数据——hpp**
+
 KZ_METACLASS_BEGIN(TestWorldNode,Node3D,"TestWorldNode")  
     KZ_METACLASS_PROPERTY_TYPE(SimulationAreaSizeProperty)  
     KZ_METACLASS_PROPERTY_TYPE(SimulationAreaCenterProperty)  
@@ -22,10 +24,11 @@ KZ_METACLASS_BEGIN(TestWorldNode,Node3D,"TestWorldNode")
 KZ_METACLASS_END()
 
 
-3.描述studio如何进行编辑当前元数据
+**3.描述studio如何进行编辑当前元数据**
+
 static kanzi::PropertyTypeEditorInfoSharedPtr makeEditorInfo();
 
-4.实现定义的propertytype：
+**4.实现定义的propertytype：**
 
 PropertyType<Vector3> TestWorldNode::SimulationAreaSizeProperty(  
  kzMakeFixedString("TestWorldNode.SimulationAreaSize"),  
@@ -39,7 +42,7 @@ PropertyType<Vector3> TestWorldNode::SimulationAreaSizeProperty(
         metadata.editor = "Vector3dFieldEditor.PropertyGridEditor";  
     ));
 
-5.实现create：
+**5.实现create：**
 
 BoidsWorldNodeSharedPtr BoidsWorldNode::create(Domain* domain, string_view name)  
 {  
@@ -47,7 +50,21 @@ BoidsWorldNodeSharedPtr BoidsWorldNode::create(Domain* domain, string_view name)
     node->initialize();  
     return node;  
 }
+
+**6实现构造函数**
+
+TestWorldNode :: TestWorldNode(Domain* domain, string_view name):  
+    Node3D(domain, name)  
+{  
+}
+
+**7：实现initialize函数**
+
+void TestWorldNode :: initialize()  
+{  
+    Node3D :: initialize();  
+}
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzODgwNDgwOCwtMTE3MDU4ODQzMSw2MT
-g0MzU1MzZdfQ==
+eyJoaXN0b3J5IjpbMjIwNTQ0OTM1LC0xMTcwNTg4NDMxLDYxOD
+QzNTUzNl19
 -->
