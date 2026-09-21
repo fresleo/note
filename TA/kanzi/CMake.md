@@ -6,7 +6,7 @@ CMake 内置变量，当前 CMakeLists 文件目录
 
 > PROJECT_SOURCE_DIR
 
-：CMake 内置变量，当前 project 的源码根目录
+CMake 内置变量，当前 project 的源码根目录
 
 > CMAKE_COMMAND
 
@@ -41,5 +41,5 @@ Kanzi 自定义/可选变量，通常由上一层构建系统或缓存传入；�
 
 不是 CMake 语法，是 MSVC 的 C/C++ 导出声明语法
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTcyNDYxNzNdfQ==
+eyJoaXN0b3J5IjpbMTkyOTg0MDYzN119
 -->
