@@ -27,7 +27,6 @@ static kanzi::PropertyTypeEditorInfoSharedPtr makeEditorInfo();
 
 4.实现定义的propertytype：
 
-例如：
 PropertyType<Vector3> TestWorldNode::SimulationAreaSizeProperty(  
  kzMakeFixedString("TestWorldNode.SimulationAreaSize"),  
     Vector3(20.0f, 10.0f, 20.0f), 0, true,  
@@ -39,6 +38,16 @@ PropertyType<Vector3> TestWorldNode::SimulationAreaSizeProperty(
         metadata.defaultValue = "20, 10, 20";  
         metadata.editor = "Vector3dFieldEditor.PropertyGridEditor";  
     ));
+
+5.实现create：
+
+BoidsWorldNodeSharedPtr BoidsWorldNode::create(Domain* domain, string_view name)  
+{  
+    auto node = BoidsWorldNodeSharedPtr(new BoidsWorldNode(domain, name));  
+    node->initialize();  
+    return node;  
+}
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzA1ODg0MzEsNjE4NDM1NTM2XX0=
+eyJoaXN0b3J5IjpbMTUzODgwNDgwOCwtMTE3MDU4ODQzMSw2MT
+g0MzU1MzZdfQ==
 -->
