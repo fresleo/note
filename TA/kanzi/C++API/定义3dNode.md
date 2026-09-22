@@ -1,5 +1,6 @@
 
-定义智能zhi'zhen
+定义智能指针
+
 
 **1 定义公共属性**
 
@@ -68,6 +69,6 @@ void TestWorldNode :: initialize()
     Node3D :: initialize();  
 }
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1NTc5MjA0LDIyMDU0NDkzNSwtMTE3MD
+eyJoaXN0b3J5IjpbODUwMjk0MTI0LDIyMDU0NDkzNSwtMTE3MD
 U4ODQzMSw2MTg0MzU1MzZdfQ==
 -->
