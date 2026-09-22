@@ -1,3 +1,6 @@
+
+定义智能zhi'zhen
+
 **1 定义公共属性**
 
 例如：
@@ -65,6 +68,6 @@ void TestWorldNode :: initialize()
     Node3D :: initialize();  
 }
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjIwNTQ0OTM1LC0xMTcwNTg4NDMxLDYxOD
-QzNTUzNl19
+eyJoaXN0b3J5IjpbLTY1NTc5MjA0LDIyMDU0NDkzNSwtMTE3MD
+U4ODQzMSw2MTg0MzU1MzZdfQ==
 -->
