@@ -1,4 +1,11 @@
 
+几个定义的函数名称：
+makeEditorInfo：KZ_METACLASS_END() 这个宏里硬编码调用了
+ 
+create：KZ_METACLASS_BEGIN/END 让类注册到 Kanzi 的 metaclass 系统运行时创建对象时，Kanzi 会Metaclass::create(...)
+
+initialize
+
 定义智能指针
 
 
@@ -69,6 +76,6 @@ void TestWorldNode :: initialize()
     Node3D :: initialize();  
 }
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODUwMjk0MTI0LDIyMDU0NDkzNSwtMTE3MD
-U4ODQzMSw2MTg0MzU1MzZdfQ==
+eyJoaXN0b3J5IjpbLTExNzc1NTA4NSw4NTAyOTQxMjQsMjIwNT
+Q0OTM1LC0xMTcwNTg4NDMxLDYxODQzNTUzNl19
 -->
