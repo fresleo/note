@@ -14,8 +14,21 @@
  - •也可自定义类型，但 RT_RCDATA 最简单
 
 
+resource.h：定义资源 ID
+.rc：声明“这个资源对应哪个文件”
+shader 文件：实际内容，放在 .rc 中的路径里
+
+
+例如，通常写法是：
+1)
+resource.h
+
+    #pragma once
+    
+    #define IDR_SHADER_VERT 101
+    #define IDR_SHADER_FRAG 102
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjQyMTYzMzAsLTIwMjI4OTAyMTRdfQ
+eyJoaXN0b3J5IjpbLTIwNjIwMzE3MzcsLTIwMjI4OTAyMTRdfQ
 ==
 -->
