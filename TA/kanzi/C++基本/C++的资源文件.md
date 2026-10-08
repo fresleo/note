@@ -2,23 +2,17 @@
 
 ***常用 API：***
 
- - •FindResourceA / FindResourceW 	根据资源 ID 和资源类型，定位资源
-
-•LoadResource
-	把资源从 DLL 中加载到内存
-•LockResource
-    获取资源真正的数据指针
-•SizeofResource
-	获取资源大小
-•MAKEINTRESOURCEA
-	把整数 ID 转成 Windows 资源名
+ - FindResourceA / FindResourceW 	**根据资源 ID 和资源类型，定位资源**
+ - LoadResource 	**把资源从 DLL 中加载到内存**
+ - LockResource **获取资源真正的数据指针**
+ - SizeofResource 	**获取资源大小**
+ - MAKEINTRESOURCEA 	**把整数 ID 转成 Windows 资源名**
 
 ***资源类型：***
 
-•RT_RCDATA
-最常见，表示任意二进制/文本数据
-•
-也可自定义类型，但 RT_RCDATA 最简单
+ - RT_RCDATA 最常见，表示任意二进制/文本数据
+ - •也可自定义类型，但 RT_RCDATA 最简单
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5ODg0MDM1Ml19
+eyJoaXN0b3J5IjpbLTIwOTEwOTAwMDBdfQ==
 -->
