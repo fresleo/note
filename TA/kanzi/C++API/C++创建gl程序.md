@@ -6,8 +6,11 @@ m_id = kzsGlCreateShader(type);
 glShaderSource(m_id , 1, &vsSource, NULL);
 3：第三步：
 glCompileShader(vertexShader);
+4：验证
+int success = 0;  
+kzsGlGetShaderiv(m_id,KZS_GL_COMPILE_STATUS, &success);
 
-//type种类有：
+//shader的type种类有：
 KZS_GL_VERTEX_SHADER
 KZS_GL_FRAGMENT_SHADER
 KZS_GL_TESS_CONTROL_SHADER
@@ -29,6 +32,6 @@ int success = 0;
 kzsGlGetProgramiv(m_id, KZS_GL_LINK_STATUS, &success);
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3MTAwMjI0NiwyOTc0Mjk2MjMsLTIwOD
-g3NDY2MTJdfQ==
+eyJoaXN0b3J5IjpbMzI0NjE3MTUyLDI5NzQyOTYyMywtMjA4OD
+c0NjYxMl19
 -->
