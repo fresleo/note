@@ -13,6 +13,9 @@
  - RT_RCDATA 最常见，表示任意二进制/文本数据
  - •也可自定义类型，但 RT_RCDATA 最简单
 
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjI4OTAyMTRdfQ==
+eyJoaXN0b3J5IjpbLTE4NjQyMTYzMzAsLTIwMjI4OTAyMTRdfQ
+==
 -->
