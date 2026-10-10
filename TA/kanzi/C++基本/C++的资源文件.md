@@ -27,8 +27,8 @@ resource.h
     
     #define IDR_SHADER_VERT 101
     #define IDR_SHADER_FRAG 102
-
+Environment.AniStartCamIdx
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNjIwMzE3MzcsLTIwMjI4OTAyMTRdfQ
-==
+eyJoaXN0b3J5IjpbLTE2MTEwNzg2MDAsLTIwNjIwMzE3MzcsLT
+IwMjI4OTAyMTRdfQ==
 -->
