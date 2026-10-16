@@ -15,11 +15,15 @@ auto f = []() -> int {
  -  ◦ 这里为空，表示这个 lambda 没有参数。
 
 •-> int
-◦
-返回类型。
-◦
-表示这个 lambda 返回 int 类型。
+ - ◦ 返回类型。 
+ - ◦ 表示这个 lambda 返回 int 类型。
+
+•{ return 42; }
+ - ◦ 函数体。
+ -  ◦ 这里返回 42。
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzOTk0MDkwOF19
+eyJoaXN0b3J5IjpbLTIwNDg5OTYwMDRdfQ==
 -->
