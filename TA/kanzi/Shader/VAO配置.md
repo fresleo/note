@@ -51,6 +51,10 @@ VAO（Vertex Array Object） 是“顶点输入状态对象”，用来记录顶
     // 6) 解绑 VAO（可选）
     glBindVertexArray(0);
 
+
+
+huang
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQxMzEwMjY0LDE3MzQ2ODIwMDZdfQ==
+eyJoaXN0b3J5IjpbODI1Njc2NDg1LDI0MTMxMDI2NCwxNzM0Nj
+gyMDA2XX0=
 -->
