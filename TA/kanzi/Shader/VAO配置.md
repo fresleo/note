@@ -75,8 +75,20 @@ KZS_GL_STREAM_DRAW, KZS_GL_STATIC_DRAW, KZS_GL_DYNAMIC_DRAW
  -  ◦ 例子：每帧更新一组粒子位置
 
 
+•GL_STATIC_DRAW
+
+ - ◦ 数据只创建一次，几乎不变
+ - ◦ 例如：静态网格、静态 quad、UI 固定顶点 
+ - ◦ 例子：屏幕四边形、贴图固定几何体
+
+
+•GL_DYNAMIC_DRAW
+
+ - ◦ 数据会多次更新，但不是每帧都无脑重写 
+ - ◦ 例如：骨骼动画、频繁变换的 transform / UI 动画 
+ - ◦例子：每次变换一个物体的位置，但不一定每帧都完全刷新
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5MTUyNTM4MiwtMTA4MTAxOTYwMywyND
-EzMTAyNjQsMTczNDY4MjAwNl19
+eyJoaXN0b3J5IjpbNTM1OTg1NTE3LC0xMDgxMDE5NjAzLDI0MT
+MxMDI2NCwxNzM0NjgyMDA2XX0=
 -->
