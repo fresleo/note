@@ -51,6 +51,7 @@ VAO（Vertex Array Object） 是“顶点输入状态对象”，用来记录顶
     // 6) 解绑 VAO（可选）
     glBindVertexArray(0);
     kzsGlBindVertexArray(0);  
+    GlDrawElements(GL_TRIANGLES,6, KZS_GL_UNSIGNED_SHORT, 0))
     SAFE_FREE_VBO(wfEbo); SAFE_FREE_VBO(wfVbo); SAFE_FREE_VAO(wfVao);
   
 
@@ -106,7 +107,7 @@ kzsGlVertexAttribPointer(0, 3,KZS_GL_FLOAT,KZS_GL_FALSE, 0, (void*)0);
   -  (void)0：offset = 0 ◦ 从该 VBO的起始位置开始读取
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzIyNDg1MzYsLTExNDExMDU0MTQsLT
-MyMDYxMDgwMCw1MzU5ODU1MTcsLTEwODEwMTk2MDMsMjQxMzEw
-MjY0LDE3MzQ2ODIwMDZdfQ==
+eyJoaXN0b3J5IjpbOTE0NTU0NDY2LC0xMTQxMTA1NDE0LC0zMj
+A2MTA4MDAsNTM1OTg1NTE3LC0xMDgxMDE5NjAzLDI0MTMxMDI2
+NCwxNzM0NjgyMDA2XX0=
 -->
