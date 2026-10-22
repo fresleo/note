@@ -54,6 +54,7 @@ VAO（Vertex Array Object） 是“顶点输入状态对象”，用来记录顶
 
 
 宏参数说明：
+1)
 KZS_GL_ARRAY_BUFFER_BINDING 和KZS_GL_ELEMENT_ARRAY_BUFFER_BINDING
 它们是两种“不同用途”的缓冲区绑定对象。
 
@@ -67,6 +68,6 @@ KZS_GL_ARRAY_BUFFER_BINDING 和KZS_GL_ELEMENT_ARRAY_BUFFER_BINDING
 KZS_GL_STREAM_DRAW, KZS_GL_STATIC_DRAW, KZS_GL_DYNAMIC_DRAW
 这几个是“缓冲区数据更新频率”的 hint，告诉 GPU/驱动这个 buffer 以后大概如何使用。它不决定正确性，但对性能有帮助。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3MTYzNDM0MCwtMTA4MTAxOTYwMywyND
+eyJoaXN0b3J5IjpbMTQzOTEyMTY3MCwtMTA4MTAxOTYwMywyND
 EzMTAyNjQsMTczNDY4MjAwNl19
 -->
