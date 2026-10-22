@@ -58,10 +58,9 @@ KZS_GL_ARRAY_BUFFER_BINDING 和KZS_GL_ELEMENT_ARRAY_BUFFER_BINDING
 它们是两种“不同用途”的缓冲区绑定对象。
 
  • ARRAY_BUFFER：存顶点属性数据 ◦ 例如 position, normal, uv, color 等 ◦ 绑定后，后续glVertexAttribPointer 读的就是这里的数据 ◦ 典型用法：glBindBuffer(GL_ARRAY_BUFFER, vbo); 
-• ELEMENT_ARRAY_BUFFER：存索引数据 ◦ 例如 0,1,2, 0,2,3 绑定后，glDrawElements 会从这里读取顶点索引 ◦
-   典型用法：glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+• ELEMENT_ARRAY_BUFFER：存索引数据 ◦ 例如 0,1,2, 0,2,3 绑定后，glDrawElements 会从这里读取顶点索引 ◦ 典型用法：glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1Njk4NDA1OSwyNDEzMTAyNjQsMTczND
-Y4MjAwNl19
+eyJoaXN0b3J5IjpbLTEyODA1OTMxNzUsMjQxMzEwMjY0LDE3Mz
+Q2ODIwMDZdfQ==
 -->
