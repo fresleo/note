@@ -67,7 +67,16 @@ KZS_GL_ARRAY_BUFFER_BINDING 和KZS_GL_ELEMENT_ARRAY_BUFFER_BINDING
 2)
 KZS_GL_STREAM_DRAW, KZS_GL_STATIC_DRAW, KZS_GL_DYNAMIC_DRAW
 这几个是“缓冲区数据更新频率”的 hint，告诉 GPU/驱动这个 buffer 以后大概如何使用。它不决定正确性，但对性能有帮助。
+
+•GL_STREAM_DRAW
+
+ - ◦ 数据几乎每帧都改 
+ - ◦ 例如：粒子系统、动画骨骼、动态顶点
+ -  ◦ 例子：每帧更新一组粒子位置
+
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzOTEyMTY3MCwtMTA4MTAxOTYwMywyND
+eyJoaXN0b3J5IjpbLTk5MTUyNTM4MiwtMTA4MTAxOTYwMywyND
 EzMTAyNjQsMTczNDY4MjAwNl19
 -->
