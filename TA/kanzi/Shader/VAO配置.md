@@ -15,6 +15,9 @@ VAO（Vertex Array Object） 是“顶点输入状态对象”，用来记录顶
 3. 绑定 VBO/EBO + 设置 glVertexAttribPointer  
 4. 绘制时只需 glBindVertexArray + glDraw
 
+
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczNDY4MjAwNl19
+eyJoaXN0b3J5IjpbNDUwMDc2OCwxNzM0NjgyMDA2XX0=
 -->
