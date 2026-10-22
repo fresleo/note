@@ -62,7 +62,11 @@ KZS_GL_ARRAY_BUFFER_BINDING 和KZS_GL_ELEMENT_ARRAY_BUFFER_BINDING
 • ELEMENT_ARRAY_BUFFER：存索引数据 ◦ 例如 0,1,2, 0,2,3 绑定后，glDrawElements 会从这里读取顶点索引 ◦
    典型用法：glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 
+
+2)
+KZS_GL_STREAM_DRAW, KZS_GL_STATIC_DRAW, KZS_GL_DYNAMIC_DRAW
+这几个是“缓冲区数据更新频率”的 hint，告诉 GPU/驱动这个 buffer 以后大概如何使用。它不决定正确性，但对性能有帮助。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODEwMTk2MDMsMjQxMzEwMjY0LDE3Mz
-Q2ODIwMDZdfQ==
+eyJoaXN0b3J5IjpbLTU3MTYzNDM0MCwtMTA4MTAxOTYwMywyND
+EzMTAyNjQsMTczNDY4MjAwNl19
 -->
