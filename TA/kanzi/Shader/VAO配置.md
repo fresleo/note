@@ -94,14 +94,14 @@ KZS_GL_STREAM_DRAW, KZS_GL_STATIC_DRAW, KZS_GL_DYNAMIC_DRAW
 kzsGlEnableVertexAttribArray(0);  
 kzsGlVertexAttribPointer(0, 3,KZS_GL_FLOAT,KZS_GL_FALSE, 0, (void*)0);
 
- - • 0：attribute location，表示把数据绑定到顶点着色器的 layout(location = 0) 或 attribute vec3 ... 这个位置 
- - • 3：每个顶点属性包含 3 个分量 
- - • KZS_GL_FLOAT：每个分量类型是float 
- - • KZS_GL_FALSE：不归一化
-    • 0：stride = 0 这是“紧凑连续”模式，表示数组里每个顶点属性紧挨着下一	    个顶点，没空隙 
-   • (void)0：offset = 0 ◦ 从该 VBO的起始位置开始读取
+ -  0：attribute location，表示把数据绑定到顶点着色器的 layout(location = 0) 或 attribute vec3 ... 这个位置 
+ -  3：每个顶点属性包含 3 个分量 
+ -  KZS_GL_FLOAT：每个分量类型是float 
+ -  KZS_GL_FALSE：不归一化
+     0：stride = 0 这是“紧凑连续”模式，表示数组里每个顶点属性紧挨着下一	    个顶点，没空隙 
+  -  (void)0：offset = 0 ◦ 从该 VBO的起始位置开始读取
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzNTgwNzQ4MSw1MzU5ODU1MTcsLTEwOD
+eyJoaXN0b3J5IjpbLTMyMDYxMDgwMCw1MzU5ODU1MTcsLTEwOD
 EwMTk2MDMsMjQxMzEwMjY0LDE3MzQ2ODIwMDZdfQ==
 -->
