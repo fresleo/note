@@ -89,8 +89,12 @@ KZS_GL_STREAM_DRAW, KZS_GL_STATIC_DRAW, KZS_GL_DYNAMIC_DRAW
  - ◦例子：每次变换一个物体的位置，但不一定每帧都完全刷新
 
 
+配置attribute函数介绍
+
+kzsGlEnableVertexAttribArray(0);  
+kzsGlVertexAttribPointer(0, 3,KZS_GL_FLOAT,KZS_GL_FALSE, 0, (void*)0);
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTk5MTE0Njk3LDUzNTk4NTUxNywtMTA4MT
-AxOTYwMywyNDEzMTAyNjQsMTczNDY4MjAwNl19
+eyJoaXN0b3J5IjpbLTI3ODU4NjU2NSw1MzU5ODU1MTcsLTEwOD
+EwMTk2MDMsMjQxMzEwMjY0LDE3MzQ2ODIwMDZdfQ==
 -->
