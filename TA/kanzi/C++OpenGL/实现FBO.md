@@ -28,34 +28,15 @@ glGenTextures / glBindTexture(GL_TEXTURE_2D, tex)
 一个最小伪代码骨架：
 
 
-    GLint prevFbo = 0;
-    kzsGlGetIntegerv(KZS_GL_FRAMEBUFFER_BINDING, &prevFbo);
-    
-    ensureOutputTexture(width, height); // 创建/复用纹理
-    ensureFbo();                        // 创建/复用FBO
-    
-    kzsGlBindFramebuffer(KZS_GL_FRAMEBUFFER, m_fbo);
-    kzsGlFramebufferTexture2D(KZS_GL_FRAMEBUFFER, KZS_GL_COLOR_ATTACHMENT0, KZS_GL_TEXTURE_2D, m_texId, 0);
-    
-    if (kzsGlCheckFramebufferStatus(KZS_GL_FRAMEBUFFER) != KZS_GL_FRAMEBUFFER_COMPLETE)
-    {
-        kzsGlBindFramebuffer(KZS_GL_FRAMEBUFFER, prevFbo);
-        return;
-    }
-    
-    kzsGlViewport(0, 0, width, height);
-    kzsGlClearColor(0,0,0,0);
-    kzsGlClear(KZS_GL_COLOR_BUFFER_BIT);
-    
-    m_program->apply();
-    DrawQuad();
-    m_program->unapply();
-    
-    kzsGlBindFramebuffer(KZS_GL_FRAMEBUFFER, prevFbo);
-    
-    // 关键：把 render target 对应的 Kanzi Texture 资源写到属性
-    setProperty(OutPutTextureProperty, static_pointer_cast<Resource>(m_outputTexture));
+    int previousFramebuffer = 0;  
+    //查询某个 OpenGL 状态变量的整数值  
+kzsGlGetIntegerv(KZS_GL_FRAMEBUFFER_BINDING, &previousFramebuffer);
+kzsGlBindFramebuffer(KZS_GL_FRAMEBUFFER, outputFramebuffer);
+kzsGlViewport(0, 0, static_cast<int>(m_RT_Width), static_cast<int>(m_RT_Height));  
+kzsGlClearColor(0.0f, 0.0f, 0.0f, 0.0f);  
+kzsGlClear(KZS_GL_COLOR_BUFFER_BIT);
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODA3NTIzNjI0XX0=
+eyJoaXN0b3J5IjpbMTI3MTMxNzEwNiw4MDc1MjM2MjRdfQ==
 -->
