@@ -37,6 +37,12 @@ kzsGlClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 kzsGlClear(KZS_GL_COLOR_BUFFER_BIT);
 
 
+
+参数解释：
+glGetIntegerv：查询某个 OpenGL 状态变量的整数值，把结果写到你给的变量里
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3MTMxNzEwNiw4MDc1MjM2MjRdfQ==
+eyJoaXN0b3J5IjpbMjExMTQ2MDY4NCwxMjcxMzE3MTA2LDgwNz
+UyMzYyNF19
 -->
