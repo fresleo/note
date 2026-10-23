@@ -45,9 +45,11 @@ KZS_GL_COLOR_BUFFER_BIT ：
 •“当前绑定 framebuffer 的颜色附件”
 •也就是当前 FBO 里，所有 GL_COLOR_ATTACHMENT0...N 的颜色输出目标
 
-kzsGlBindFramebuffer 的作用是：
+kzsGlBindFramebuffer 的作用是： 把“当前渲染目标”切到某个 framebuffer。
+
+也就是告诉 OpenGL，后续 DrawElements / Clear / ReadPixels 都输出到这个 FBO
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTc1NTcxNjYsLTE5NDUzOTQ5MjQsMj
+eyJoaXN0b3J5IjpbLTEwNzU4NDA5ODQsLTE5NDUzOTQ5MjQsMj
 Q0MjY2MDQwLDIxMTE0NjA2ODQsMTI3MTMxNzEwNiw4MDc1MjM2
 MjRdfQ==
 -->
