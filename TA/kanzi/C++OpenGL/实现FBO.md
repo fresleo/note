@@ -48,8 +48,13 @@ KZS_GL_COLOR_BUFFER_BIT ：
 kzsGlBindFramebuffer 的作用是： 把“当前渲染目标”切到某个 framebuffer。
 
 也就是告诉 OpenGL，后续 DrawElements / Clear / ReadPixels 都输出到这个 FBO
+
+kzsGlViewport 就是 OpenGL 的 glViewport，作用是：
+
+•设置当前渲染目标的视口大小和位置
+•决定后续绘制时，NDC 坐标会映射到哪个矩形区域
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzU4NDA5ODQsLTE5NDUzOTQ5MjQsMj
-Q0MjY2MDQwLDIxMTE0NjA2ODQsMTI3MTMxNzEwNiw4MDc1MjM2
-MjRdfQ==
+eyJoaXN0b3J5IjpbMTg0OTU4Mjg3MCwtMTA3NTg0MDk4NCwtMT
+k0NTM5NDkyNCwyNDQyNjYwNDAsMjExMTQ2MDY4NCwxMjcxMzE3
+MTA2LDgwNzUyMzYyNF19
 -->
