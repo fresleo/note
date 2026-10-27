@@ -27,13 +27,97 @@ glBindFramebuffer(GL_FRAMEBUFFER, prevFbo)
 一个最小伪代码骨架：
 
 
+void LensFlareRenderPass::ensureOutputTexture()  
+{  
+    TextureSharedPtr outputTexture = getCompositionTarget0();  
+    const bool needRecreate =  
+        !outputTexture ||  
+        outputTexture->getWidth() != m_RT_Width ||  
+        outputTexture->getHeight() != m_RT_Height;  
+  
+    if (!needRecreate)  
+    {  
+        m_outputTexture = outputTexture;  
+        return;  
+    }  
+  
+    Texture::CreateInfoRenderpassRenderTarget createInfo(m_RT_Width, m_RT_Height, GraphicsFormatR8G8B8A8_UNORM);  
+    outputTexture = Texture::create(getDomain(), createInfo, "LensFlareRenderPass.OutputTexture");  
+    if (!outputTexture)  
+    {  
+        kzLogDebug(("LensFlareRenderPass: failed to create output texture"));  
+        m_outputTexture.reset();  
+        m_outputTextureHandle = 0u;  
+        return;  
+    }  
+  
+    m_outputTexture = outputTexture;  
+    m_outputTextureHandle = 0u;  
+    setCompositionTarget0(outputTexture);  
+}  
+  
+void LensFlareRenderPass::ensureOutputFramebuffer()  
+{  
+    if (!m_outputTexture)  
+    {  
+        return;  
+    }  
+  
+    const unsigned int textureHandle = static_cast<unsigned int>(m_outputTexture->getNativeHandle());  
+    if (textureHandle == 0u)  
+    {  
+        kzLogDebug(("LensFlareRenderPass: output texture has no native texture handle"));  
+        return;  
+    }  
+  
+    if (m_outputFramebuffer == 0u)  
+    {  
+        //m_outputFramebuffer：帧缓冲对象（FBO）  
+  kzsGlGenFramebuffers(1, &m_outputFramebuffer);  
+        if (m_outputFramebuffer == 0u)  
+        {  
+            kzLogDebug(("LensFlareRenderPass: failed to create framebuffer"));  
+            return;  
+        }  
+    }  
+  
+    if (m_outputTextureHandle == textureHandle)  
+    {  
+        return;  
+    }  
+  
     int previousFramebuffer = 0;  
-    //查询某个 OpenGL 状态变量的整数值  
-kzsGlGetIntegerv(KZS_GL_FRAMEBUFFER_BINDING, &previousFramebuffer);
-kzsGlBindFramebuffer(KZS_GL_FRAMEBUFFER, outputFramebuffer);
-kzsGlViewport(0, 0, static_cast<int>(m_RT_Width), static_cast<int>(m_RT_Height));  
-kzsGlClearColor(0.0f, 0.0f, 0.0f, 0.0f);  
-kzsGlClear(KZS_GL_COLOR_BUFFER_BIT);
+    kzsGlGetIntegerv(KZS_GL_FRAMEBUFFER_BINDING, &previousFramebuffer);  
+    kzsGlBindFramebuffer(KZS_GL_FRAMEBUFFER, m_outputFramebuffer);  
+    kzsGlFramebufferTexture2D(  
+        KZS_GL_FRAMEBUFFER,  
+        KZS_GL_COLOR_ATTACHMENT0,  
+        KZS_GL_TEXTURE_2D,  
+        textureHandle,  
+        0);  
+  
+    const unsigned int status = kzsGlCheckFramebufferStatus(KZS_GL_FRAMEBUFFER);  
+    kzsGlBindFramebuffer(KZS_GL_FRAMEBUFFER, previousFramebuffer);  
+    if (status != KZS_GL_FRAMEBUFFER_COMPLETE)  
+    {  
+        m_outputTextureHandle = 0u;  
+        kzLogDebug(("LensFlareRenderPass: framebuffer is not complete, status={}", status));  
+        return;  
+    }  
+  
+    m_outputTextureHandle = textureHandle;  
+}  
+  
+void LensFlareRenderPass::releaseOutputFramebuffer()  
+{  
+    if (m_outputFramebuffer != 0u)  
+    {  
+        kzsGlDeleteFramebuffers(1, &m_outputFramebuffer);  
+        m_outputFramebuffer = 0u;  
+    }  
+  
+    m_outputTextureHandle = 0u;  
+}
 
 
 
@@ -53,7 +137,7 @@ kzsGlViewport 就是 OpenGL 的 glViewport，作用是：
 •设置当前渲染目标的视口大小和位置
 •决定后续绘制时，NDC 坐标会映射到哪个矩形区域
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxMjIxOTc1NiwxODQ5NTgyODcwLC0xMD
-c1ODQwOTg0LC0xOTQ1Mzk0OTI0LDI0NDI2NjA0MCwyMTExNDYw
-Njg0LDEyNzEzMTcxMDYsODA3NTIzNjI0XX0=
+eyJoaXN0b3J5IjpbMzAwOTI5OTI2LDE1MTIyMTk3NTYsMTg0OT
+U4Mjg3MCwtMTA3NTg0MDk4NCwtMTk0NTM5NDkyNCwyNDQyNjYw
+NDAsMjExMTQ2MDY4NCwxMjcxMzE3MTA2LDgwNzUyMzYyNF19
 -->
