@@ -108,16 +108,7 @@ void LensFlareRenderPass::ensureOutputFramebuffer()
     m_outputTextureHandle = textureHandle;  
 }  
   
-void LensFlareRenderPass::releaseOutputFramebuffer()  
-{  
-    if (m_outputFramebuffer != 0u)  
-    {  
-        kzsGlDeleteFramebuffers(1, &m_outputFramebuffer);  
-        m_outputFramebuffer = 0u;  
-    }  
-  
-    m_outputTextureHandle = 0u;  
-}
+
 
 
 
@@ -137,7 +128,8 @@ kzsGlViewport 就是 OpenGL 的 glViewport，作用是：
 •设置当前渲染目标的视口大小和位置
 •决定后续绘制时，NDC 坐标会映射到哪个矩形区域
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzAwOTI5OTI2LDE1MTIyMTk3NTYsMTg0OT
-U4Mjg3MCwtMTA3NTg0MDk4NCwtMTk0NTM5NDkyNCwyNDQyNjYw
-NDAsMjExMTQ2MDY4NCwxMjcxMzE3MTA2LDgwNzUyMzYyNF19
+eyJoaXN0b3J5IjpbLTU3OTAzNzU5LDMwMDkyOTkyNiwxNTEyMj
+E5NzU2LDE4NDk1ODI4NzAsLTEwNzU4NDA5ODQsLTE5NDUzOTQ5
+MjQsMjQ0MjY2MDQwLDIxMTE0NjA2ODQsMTI3MTMxNzEwNiw4MD
+c1MjM2MjRdfQ==
 -->
